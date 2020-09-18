@@ -18,12 +18,13 @@ public class Crypto
 		{
 			codigoASCII = senha.charAt(contador)+130;
 			senhaCriptografada = senhaCriptografada +(char) codigoASCII;
+			System.out.println(codigoASCII);
 			contador++;
 		}
 		System.out.println("senha criptografada: " + senhaCriptografada);
         return senhaCriptografada;
     }
-    /*public static String Decripto(String senha)
+    public static String Decripto(String senha)
 	{
 		//Descriptografa a String passada por parâmetro
 		int contador, tamanho,codigoASCII;
@@ -31,16 +32,26 @@ public class Crypto
 		tamanho = senha.length();
 		senha = senha.toUpperCase();
 		contador = 0;
-		
+
 		while(contador <tamanho)
 		{
-			codigoASCII = senha.charAt(contador)-130;
+			codigoASCII = senha.charAt(contador)+130;
+			//System.out.println(codigoASCII);
 			senhaCriptografada = senhaCriptografada +(char) codigoASCII;
 			contador++;
 		}
-		System.out.println("senha original: " + senhaCriptografada);
+		contador=0;
+		String senhaDescriptografada="";
+		while(contador <tamanho)
+		{
+			codigoASCII = senhaCriptografada.charAt(contador)-130;
+			senhaDescriptografada = senhaDescriptografada + (char) codigoASCII;
+			contador++;
+		}
+		senhaDescriptografada.toLowerCase();
+		System.out.println("senha original: " + senhaDescriptografada);
 		return senhaCriptografada;
-    }*/
+    }
     //decripto ainda não terminado, saida estranha 
 
 
@@ -48,8 +59,7 @@ public class Crypto
     Scanner t = new Scanner(System.in);
     String senha = t.nextLine();
     Crypto.Cripto(senha);
-    //Decripto(senha);
-    
+    Crypto.Decripto(senha);
    
    
 
